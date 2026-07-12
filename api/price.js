@@ -25,7 +25,10 @@ module.exports = async (req, res) => {
       const quote = await quoteRes.json();
 
       if (quote.c == null || quote.c === 0) {
-        return res.status(404).json({ error: '해당 티커의 가격을 찾을 수 없어요' });
+        return res.status(404).json({
+          error: '해당 티커의 가격을 찾을 수 없어요',
+          debug_finnhub_response: quote
+        });
       }
 
       // 원화 환산을 위한 환율 조회 (키 필요 없는 무료 API)
