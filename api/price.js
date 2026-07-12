@@ -32,7 +32,7 @@ module.exports = async (req, res) => {
       }
 
       // 원화 환산을 위한 환율 조회 (키 필요 없는 무료 API)
-      let krwRate = 1400; // 조회 실패 시 대략적인 기본값
+      let krwRate = 1500; // 조회 실패 시 대략적인 기본값
       try {
         const fxRes = await fetch('https://open.er-api.com/v6/latest/USD');
         const fx = await fxRes.json();
