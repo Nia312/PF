@@ -87,6 +87,7 @@ module.exports = async (req, res) => {
         title: stripTags(item.title),
         summary: stripTags(item.description),
         source: '네이버뉴스',
+        url: item.originallink || item.link || '',
         time: item.pubDate
           ? new Date(item.pubDate).toLocaleString('ko-KR', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })
           : ''
