@@ -70,7 +70,10 @@ module.exports = async (req, res) => {
       const list = Array.isArray(items) ? items : (items ? [items] : []);
 
       if (list.length === 0) {
-        return res.status(404).json({ error: '해당 종목코드의 가격을 찾을 수 없어요' });
+        return res.status(404).json({
+          error: '해당 종목코드의 가격을 찾을 수 없어요',
+          debug_datago_response: krData
+        });
       }
 
       list.sort((a, b) => String(b.basDt).localeCompare(String(a.basDt)));
